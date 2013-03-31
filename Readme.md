@@ -7,6 +7,7 @@ I wanted to run the service on heroku so I adapted the original project a little
 
 * added a Procfile
 * used https://github.com/ddollar/heroku-buildpack-multi so that I could use multiple buildpacks - https://github.com/heroku/heroku-buildpack-nodejs and https://github.com/stomita/heroku-buildpack-phantomjs.git
+* updated the PATH heroku config:set PATH=bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin:vendor/phantomjs/bin
 
 ## Setup
 
