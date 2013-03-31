@@ -8,26 +8,27 @@ module.exports = function(app) {
   var rasterizerService = app.settings.rasterizerService;
   var fileCleanerService = app.settings.fileCleanerService;
 
-  // routes
   app.get('/', function(req, res, next) {
     if (!req.param('url', false)) {
       return res.redirect('/usage.html');
     }
 
     var url = utils.url(req.param('url'));
+	
     // required options
     var options = {
       uri: 'http://localhost:' + rasterizerService.getPort() + '/',
       headers: { url: url }
     };
-    ['width', 'height', 'clipRect', 'javascriptEnabled', 'loadImages', 'localToRemoteUrlAccessEnabled', 'userAgent', 'userName', 'password', 'delay'].forEach(function(name) {
+	
+    ['width', 'height', 'clipRect', 'javascriptEnabled', 'loadImages', 'localToRemoteUrlAccessEnabled', 'userAgent', 'userName', 'password', 'delay', 'format'].forEach(function(name) {
       if (req.param(name, false)) options.headers[name] = req.param(name);
     });
 
-    var filename = 'screenshot_' + utils.md5(url + JSON.stringify(options)) + '.pdf';
-    options.headers.filename = filename;
-
+    var filename = 'screenshot_' + utils.md5(url + JSON.stringify(options)) + (req.param('format', false) || '.png');
     var filePath = join(rasterizerService.getPath(), filename);
+	
+    options.headers.filename = filename;
 
     var callbackUrl = req.param('callback', false) ? utils.url(req.param('callback')) : false;
 
