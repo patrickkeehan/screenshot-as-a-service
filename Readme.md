@@ -9,6 +9,8 @@ I wanted to run the service on heroku so I adapted the original project a little
 * used https://github.com/ddollar/heroku-buildpack-multi so that I could use multiple buildpacks - https://github.com/heroku/heroku-buildpack-nodejs and https://github.com/stomita/heroku-buildpack-phantomjs.git
 * updated the PATH heroku config:set PATH=bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin:vendor/phantomjs/bin
 
+The app is hosted at: http://phantomjs-service.herokuapp.com
+
 ## Setup
 
 First [install](http://code.google.com/p/phantomjs/wiki/Installation) phantomjs, then clone this repo and install the deps:
