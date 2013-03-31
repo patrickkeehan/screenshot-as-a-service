@@ -2,6 +2,12 @@
 
 A simple screenshot web service powered by [Express](http://expressjs.com) and [PhantomJS](http://www.phantomjs.org/). Forked from [screenshot-app](http://github.com/visionmedia/screenshot-app).
 
+## Heroku
+I wanted to run the service on heroku so I adapted the original project a little bit - https://github.com/fzaninotto/screenshot-as-a-service
+
+* added a Procfile
+* used https://github.com/ddollar/heroku-buildpack-multi so that I could use multiple buildpacks - https://github.com/heroku/heroku-buildpack-nodejs and https://github.com/stomita/heroku-buildpack-phantomjs.git
+
 ## Setup
 
 First [install](http://code.google.com/p/phantomjs/wiki/Installation) phantomjs, then clone this repo and install the deps:
