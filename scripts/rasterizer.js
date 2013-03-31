@@ -98,7 +98,7 @@ service = server.listen(port, function(request, response) {
 				if (strokeOpacity != null && strokeOpacity < 0.2)
 					path.parentNode.removeChild(path);
 			}
-		}
+		});
 		
         page.render(path);
         response.write('Success: Screenshot saved to ' + path + "\n");
