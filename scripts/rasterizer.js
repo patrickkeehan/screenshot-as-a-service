@@ -64,7 +64,7 @@ service = server.listen(port, function(request, response) {
     return;
   }
   var url = request.headers.url;
-  var path = basePath + (request.headers.filename || (url.replace(new RegExp('https?://'), '').replace(/\//g, '.') + '.png'));
+  var path = basePath + (request.headers.filename || (url.replace(new RegExp('https?://'), '').replace(/\//g, '.') + '.pdf'));
   var page = new WebPage();
   var delay = request.headers.delay || 0;
   try {
