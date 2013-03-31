@@ -25,7 +25,7 @@ module.exports = function(app) {
       if (req.param(name, false)) options.headers[name] = req.param(name);
     });
 
-    var filename = 'screenshot_' + utils.md5(url + JSON.stringify(options)) + (req.param('format', false) || '.png');
+    var filename = 'screenshot_' + utils.md5(url + JSON.stringify(options)) + '.' + (req.param('format', false) || 'png');
     var filePath = join(rasterizerService.getPath(), filename);
 	
     options.headers.filename = filename;
