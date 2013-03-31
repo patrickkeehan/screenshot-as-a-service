@@ -90,6 +90,7 @@ service = server.listen(port, function(request, response) {
   page.open(url, function(status) {
     if (status == 'success') {
       window.setTimeout(function () {
+		console.log('Rendering ' + path);
         page.render(path);
         response.write('Success: Screenshot saved to ' + path + "\n");
         page.release();
