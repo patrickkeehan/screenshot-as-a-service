@@ -90,7 +90,16 @@ service = server.listen(port, function(request, response) {
   page.open(url, function(status) {
     if (status == 'success') {
       window.setTimeout(function () {
-		console.log('Rendering ' + path);
+		page.evaluate(function () {
+			var paths = document.getElementsByTagName("path");
+			for (var i = paths.length - 1; i >= 0; i--) {
+				var path = paths[i];
+				var strokeOpacity = path.getAttribute('stroke-opacity');
+				if (strokeOpacity != null && strokeOpacity < 0.2)
+					path.parentNode.removeChild(path);
+			}
+		}
+		
         page.render(path);
         response.write('Success: Screenshot saved to ' + path + "\n");
         page.release();
