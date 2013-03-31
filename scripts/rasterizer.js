@@ -81,6 +81,7 @@ service = server.listen(port, function(request, response) {
         page.settings[pageSettings[name]] = value;
       }
     }
+	page.paperSize = { format: "A4", orientation: 'landscape', margin: '1cm' };
   } catch (err) {
     response.statusCode = 500;
     response.write('Error while parsing headers: ' + err.message);
