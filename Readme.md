@@ -6,7 +6,7 @@ A simple screenshot web service powered by [Express](http://expressjs.com) and [
 I wanted to run the service on heroku so I adapted the original project a little bit - https://github.com/fzaninotto/screenshot-as-a-service
 
 * added a Procfile
-* used https://github.com/ddollar/heroku-buildpack-multi so that I could use multiple buildpacks - https://github.com/heroku/heroku-buildpack-nodejs and https://github.com/stomita/heroku-buildpack-phantomjs.git
+* used https://github.com/ddollar/heroku-buildpack-multi so that I could use multiple buildpacks - https://github.com/heroku/heroku-buildpack-nodejs and https://github.com/stomita/heroku-buildpack-phantomjs.git. The buildpacks are listed in .buildpacks
 * updated the PATH heroku config:set PATH=bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin:vendor/phantomjs/bin
 
 The app is hosted at: http://phantomjs-service.herokuapp.com
