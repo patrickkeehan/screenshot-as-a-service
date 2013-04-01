@@ -2,6 +2,10 @@
 
 A simple screenshot web service powered by [Express](http://expressjs.com) and [PhantomJS](http://www.phantomjs.org/). Forked from [screenshot-app](http://github.com/visionmedia/screenshot-app).
 
+# ToDo
+* Put some basic auth in place
+* Have the service accessed via HTTPS - especially if we use basic auth
+
 ## Heroku
 I wanted to run the service on heroku so I adapted the original project a little bit - https://github.com/fzaninotto/screenshot-as-a-service
 
@@ -11,7 +15,11 @@ I wanted to run the service on heroku so I adapted the original project a little
 
 The app is hosted at: http://phantomjs-service.herokuapp.com
 
-## Setup
+The intention is to use it in it's simplest form - namely hand it a url to render. The idea would be to use it to generate reports - clicking a report link would cause the user to be redirected to the phantomjs service with a url pointing back at the originating server. The callback url would be a report url containing various charts etc.
+
+The following details are from the original project and are somewhat geared at running the code locally. That said the usage instructions still apply for the heroku service.
+
+## Local Setup
 
 First [install](http://code.google.com/p/phantomjs/wiki/Installation) phantomjs, then clone this repo and install the deps:
 
